@@ -143,17 +143,13 @@ def financial_ai_model(salary, rental_income, rent_or_mortgage, utilities, insur
     },
     "recommendations": {
     "budget_recommendations": [
-    "Review and possibly reduce entertainment and grocery expenses to
-    increase savings.",
-    "Consider additional income sources such as a part-time job or
-    freelancing.",
+    "Review and possibly reduce entertainment and grocery expenses to increase savings.",
+    "Consider additional income sources such as a part-time job or freelancing.",
     "Prioritize repayment of the high-interest credit card debt."
     ],
     "home_loan_options": [
-    "Explore first-time homebuyer programs which may offer better interest
-    rates or down payment assistance.",
-    "Consider a shorter loan term if future income increases are expected,
-    to save on total interest paid."
+    "Explore first-time homebuyer programs which may offer better interest rates or down payment assistance.",
+    "Consider a shorter loan term if future income increases are expected, to save on total interest paid."
     ],
     "investment_tips": [
     "Consider opening a TFSA to save for your goals.",
@@ -164,10 +160,8 @@ def financial_ai_model(salary, rental_income, rent_or_mortgage, utilities, insur
     "house_price_goal": 250000,
     "steps_to_achieve_goals": [
     "Continue saving aggressively towards the down payment.",
-    "Adjust the monthly savings contribution to meet the down payment
-    goal faster.",
-    "Consult with a mortgage advisor to understand the best loan
-    options available."
+    "Adjust the monthly savings contribution to meet the down payment goal faster.",
+    "Consult with a mortgage advisor to understand the best loan options available."
     ]
     }
     }
