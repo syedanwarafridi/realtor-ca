@@ -1,6 +1,6 @@
 from openai import OpenAI
 
-client = OpenAI(api_key="")
+client = OpenAI(api_key="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")
 
 def financial_ai_model(salary, rental_income, rent_or_mortgage, utilities, insurance, subscriptions, groceries, transportation, entertainment, cc_payment, cc_interest, student_loan_payment, student_loan_interest, savings_account, retirement, house_price, down_payment, loan_amount, annual_interest_rate, loan_term_years):
     system_prompt = "You are a Real Estate Financial Analyzer Expert"
