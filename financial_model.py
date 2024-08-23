@@ -125,7 +125,8 @@ def financial_ai_model(salary, rental_income, rent_or_mortgage, utilities, insur
     # )
 
     # json_string = response.choices[0].message.content
-
+    false = False
+    true = True
     static_response = {
     "calculations": {
     "disposable_income": 1601.91,
