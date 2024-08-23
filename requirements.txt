@@ -3,4 +3,4 @@ openai==1.40.6
 flask
 gunicorn
 langchain-community
-No module named 'langchain_experimental'
+langchain_experimental
