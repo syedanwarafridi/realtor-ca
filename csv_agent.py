@@ -39,7 +39,7 @@ def csv_ai_chatbot(user_query):
         verbose=True,
         allow_dangerous_code=True,
         agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-        handle_parsing_errors=True
+        # handle_parsing_errors=True
     )
 
     response = agent.invoke(prompt_template).strip()
