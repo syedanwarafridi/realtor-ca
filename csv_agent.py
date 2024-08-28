@@ -1,4 +1,5 @@
-from langchain_community.chat_models import ChatOpenAI #from langchain.chat_models import ChatOpenAI
+#from langchain_community.chat_models import ChatOpenAI #from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_experimental.agents.agent_toolkits import create_csv_agent
 from langchain.memory import ConversationBufferMemory
 from langchain.agents.agent_types import AgentType
@@ -41,7 +42,7 @@ def csv_ai_chatbot(user_query):
         handle_parsing_errors=True
     )
 
-    response = agent.run(prompt_template).strip()
+    response = agent.invoke(prompt_template).strip()
     memory.save_context({"input": user_query}, {"output": response})
     
     return response
