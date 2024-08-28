@@ -1,6 +1,6 @@
 from openai import OpenAI
 
-client = OpenAI(api_key="")
+client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
 def financial_ai_model(salary, rental_income, rent_or_mortgage, utilities, insurance, subscriptions, groceries, transportation, entertainment, cc_payment, cc_interest, student_loan_payment, student_loan_interest, savings_account, retirement, house_price, down_payment, loan_amount, annual_interest_rate, loan_term_years):
     system_prompt = "You are a Real Estate Financial Analyzer Expert"
@@ -112,59 +112,18 @@ def financial_ai_model(salary, rental_income, rent_or_mortgage, utilities, insur
             }}
             """
 
-    # messages = [
-    #     {"role": "system", "content": system_prompt},
-    #     {"role": "user", "content": prompt}
-    # ]
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": prompt}
+    ]
 
-    # response = client.chat.completions.create(
-    #     model='gpt-4-turbo',
-    #     messages=messages,
-    #     temperature=0,
-    #     response_format={ "type": "json_object" },
-    # )
+    response = client.chat.completions.create(
+        model='gpt-4-turbo',
+        messages=messages,
+        temperature=0,
+        response_format={ "type": "json_object" },
+    )
 
-    # json_string = response.choices[0].message.content
-    static_response = {
-    "calculations": {
-        "disposable_income": 1601.91,
-        "mortgage_payment": 898.09,
-        "net_monthly_income": 3500,
-        "total_debt_interest": 137.5,
-        "total_debt_payments": 500,
-        "total_expenses": 2500,
-        "total_income": 6000,
-        "total_savings_contributions": 500
-    },
-    "issues": {
-        "budget_shortfall": False,
-        "high_interest_debt": True
-    },
-    "recommendations": {
-        "budget_recommendations": [
-            "Review and possibly reduce entertainment and grocery expenses to increase savings.",
-            "Consider additional income sources such as a part-time job or freelancing.",
-            "Prioritize repayment of the high-interest credit card debt."
-        ],
-        "home_loan_options": [
-            "Explore first-time homebuyer programs which may offer better interest rates or down payment assistance.",
-            "Consider a shorter loan term if future income increases are expected, to save on total interest paid."
-        ],
-        "investment_tips": [
-            "Consider opening a TFSA to save for your goals.",
-            "Explore stock market investments for potential long-term growth."
-        ],
-        "personal_goals": {
-            "down_payment_goal": 50000,
-            "house_price_goal": 250000,
-            "steps_to_achieve_goals": [
-                "Continue saving aggressively towards the down payment.",
-                "Adjust the monthly savings contribution to meet the down payment goal faster.",
-                "Consult with a mortgage advisor to understand the best loan options available."
-                    ]
-                }
-            }
-        }
+    json_string = response.choices[0].message.content
 
-
-    return static_response
+    return json_String
