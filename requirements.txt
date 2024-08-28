@@ -4,5 +4,6 @@ flask
 gunicorn
 langchain-community
 langchain-experimental
+langchain-openai
 pandas
 
