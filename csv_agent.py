@@ -7,7 +7,7 @@ import os
 # os.environ['OPENAI_API_KEY'] = ""
 
 def csv_ai_chatbot(user_query):
-    # LLM = ChatOpenAI(temperature=1, openai_api_key=os.environ['OPENAI_API_KEY'], model='gpt-4')
+    LLM = ChatOpenAI(temperature=1, openai_api_key=os.environ['OPENAI_API_KEY'], model='gpt-4')
 
     file_path = "Property Details.csv"
     
@@ -32,16 +32,16 @@ def csv_ai_chatbot(user_query):
     {conversation_history}
     """
 
-    # agent = create_csv_agent(
-    #     llm=LLM,
-    #     path=file_path,
-    #     verbose=True,
-    #     allow_dangerous_code=True,
-    #     agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-    #     handle_parsing_errors=True
-    # )
+    agent = create_csv_agent(
+        llm=LLM,
+        path=file_path,
+        verbose=True,
+        allow_dangerous_code=True,
+        agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+        handle_parsing_errors=True
+    )
 
-    # response = agent.run(prompt_template).strip()
-    # memory.save_context({"input": user_query}, {"output": response})
-    response = "There is no property located at 'Satchell Blvd' in the current."
+    response = agent.run(prompt_template).strip()
+    memory.save_context({"input": user_query}, {"output": response})
+    
     return response
