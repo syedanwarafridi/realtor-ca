@@ -4,4 +4,5 @@ flask
 gunicorn
 langchain-community
 langchain-experimental
+pandas
 
