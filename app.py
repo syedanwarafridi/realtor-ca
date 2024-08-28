@@ -33,6 +33,8 @@ def analyze_finances():
     result = financial_ai_model(salary, rental_income, rent_or_mortgage, utilities, insurance, subscriptions, groceries, transportation, entertainment, cc_payment, cc_interest, student_loan_payment, student_loan_interest, savings_account, retirement, house_price, down_payment, loan_amount, annual_interest_rate, loan_term_years)
     result = json.loads(result)
     return jsonify(result)
+
+
 #------------- CSV AGENT -------------#
 @app.route('/csv-chatbot', methods=['POST'])
 def chat():
@@ -47,9 +49,19 @@ def chat():
         response = csv_ai_chatbot(user_query)
     except Exception as e:
         response = f"Error: {str(e)}"
+        
+    pattern = r"'output':\s*'(.*?)'}$"
 
-    # Return the response as JSON
-    return jsonify({"response": response})
+    # Use re.search to find the match
+    match = re.search(pattern, response, re.DOTALL)
+    
+    # Check if a match was found and print the result
+    if match:
+        output_text = match.group(1)
+    else:
+        output_text = response
+
+    return jsonify({"response": output_text})
 
 if __name__ == '__main__':
     app.run(debug=True)
