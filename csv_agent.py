@@ -42,7 +42,7 @@ def csv_ai_chatbot(user_query):
         # handle_parsing_errors=True
     )
 
-    response = agent.invoke(prompt_template)
+    response = str(agent.invoke(prompt_template))
     memory.save_context({"input": user_query}, {"output": response})
     
     return response
