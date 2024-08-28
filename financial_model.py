@@ -127,4 +127,4 @@ def financial_ai_model(salary, rental_income, rent_or_mortgage, utilities, insur
 
     json_string = response.choices[0].message.content
 
-    return json_String
+    return json_string
