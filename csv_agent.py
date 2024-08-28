@@ -7,7 +7,7 @@ import os
 # os.environ['OPENAI_API_KEY'] = ""
 
 def csv_ai_chatbot(user_query):
-    LLM = ChatOpenAI(temperature=1, openai_api_key=os.environ['OPENAI_API_KEY'], model='gpt-4o')
+    LLM = ChatOpenAI(temperature=1, openai_api_key=os.environ['OPENAI_API_KEY'], model='gpt-4')
 
     file_path = "Property Details.csv"
     
