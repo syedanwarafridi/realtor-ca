@@ -31,7 +31,7 @@ def analyze_finances():
     loan_term_years = data.get('loan_term_years', 0)
 
     result = financial_ai_model(salary, rental_income, rent_or_mortgage, utilities, insurance, subscriptions, groceries, transportation, entertainment, cc_payment, cc_interest, student_loan_payment, student_loan_interest, savings_account, retirement, house_price, down_payment, loan_amount, annual_interest_rate, loan_term_years)
-    # result = json.loads(result)
+    result = json.loads(result)
     return jsonify(result)
 #------------- CSV AGENT -------------#
 @app.route('/csv-chatbot', methods=['POST'])
